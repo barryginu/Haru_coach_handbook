@@ -1,0 +1,14 @@
+.BTT_button_itself {
+    border-width: 0;
+    background-color: rgb(167, 245, 255, 0.6);
+    border-radius: 50%;
+    width: 10vmin;
+    height: 10vmin;
+    position: fixed;
+    bottom: 5vh;
+    left: 85vw;
+}
+
+.BTT_button_itself:active {
+    background-color: darkgrey;
+}
