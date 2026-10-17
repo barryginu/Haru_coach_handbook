@@ -1,7 +1,11 @@
 import ItemList from "../components/ItemList"
 import BackToTopButton from "../components/BackToTopButton"
+import { useState } from "react"
+const area_list = ["湯澤", "白馬"]
+
 
 function MainPage() {
+    const [area, changeArea] = useState(area_list[0])
     return (
         <>
             <ItemList />

@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import MainPage from './pages/MainPage'
+import WelcomPage from './pages/WelcomePage'
+import { useState } from 'react'
+
 
 {/*
 JS 陣列內建語法
@@ -19,10 +22,12 @@ git commit -m "訊息說明"   ：建立記錄點，附帶訊息
 
 
 function App() {
+  const [language, setLanguage] = useState("zh-TW")
   return (
     <BrowserRouter basename="/Haru_coach_handbook">
       <Routes>
         <Route path='/' element={<MainPage />} />
+        <Route path='/welcompage' element={<WelcomPage />} />
       </Routes>
     </BrowserRouter>
   )
