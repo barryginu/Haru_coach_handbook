@@ -1,13 +1,13 @@
 import './BackToTopButton.css'
+import BTTIcon from './BTTIcon'
+
 
 function BackToTopButton() {
     return (
 
         <button className='BTT_button_itself'
             onClick={ScrollToTop}>
-            測試
-            <br />
-            按鈕
+            <BTTIcon />
         </button >
 
     )
