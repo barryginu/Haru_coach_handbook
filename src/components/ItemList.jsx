@@ -17,8 +17,11 @@ const items = ["雪衣", "雪褲", "手套", "護具", "雪襪"]
 */}
 
 
-
-function ItemList() {
+{/*
+    此處可還原成function ItemList(props)
+    同時下面return呼叫用{props.areaName}
+*/}
+function ItemList({ areaName }) {
     const [checkedItems, setCheckedItems] = useState([])
     function handleCheck(item) {
         if (checkedItems.includes(item)) {
@@ -32,10 +35,10 @@ function ItemList() {
 
     return (
         <>
-            <h1>教練小手冊</h1>
+
+
             <div className="equipt_list">
                 <h2>裝備清單</h2>
-
                 <ul>
                     {items.map((item) => (
                         <li key={item}>

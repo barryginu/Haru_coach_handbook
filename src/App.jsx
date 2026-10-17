@@ -19,14 +19,25 @@ git diff                  ：比較檔案修改前後的細節差異。
 git add .                 ：將檔案的變更加入暫存區，. 代表將當前目錄及子目錄下所有「修改與新增」的檔案加入暫存區
 git commit -m "訊息說明"   ：建立記錄點，附帶訊息    
 */}
-
+const languageList = ["zh-TW", "en"]
 
 function App() {
-  const [language, setLanguage] = useState("zh-TW")
+  const [language, setLanguage] = useState(languageList[0])
+  {/* 語言定義在app，以免未來有需要改，可以用子級改變父級內容 */ }
   return (
     <BrowserRouter basename="/Haru_coach_handbook">
+      <p>目前語言:{language}</p>
       <Routes>
-        <Route path='/' element={<MainPage />} />
+        <Route
+          path='/'
+          element={
+            <MainPage
+              currentLanguage={language}
+              setLanguage={setLanguage}
+              languageList={languageList}
+            />
+          }
+        />
         <Route path='/welcompage' element={<WelcomPage />} />
       </Routes>
     </BrowserRouter>

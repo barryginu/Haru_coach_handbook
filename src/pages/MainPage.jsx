@@ -4,11 +4,22 @@ import { useState } from "react"
 const area_list = ["湯澤", "白馬"]
 
 
-function MainPage() {
-    const [area, changeArea] = useState(area_list[0])
+
+function MainPage({ language, setLanguage, languageList }) {
+    const [selectedArea, changeArea] = useState(area_list[0])
     return (
         <>
-            <ItemList />
+            <h1>教練小手冊</h1>
+            {/* 此區段是切換父級語言變數的按鈕渲染 
+            {languageList.map((lang) => (
+                <button
+                    key={lang}
+                    onClick={() => setLanguage(lang)}
+                >
+                    {lang}
+                </button>))}
+            */}
+            <ItemList areaName={selectedArea} />
             <BackToTopButton />
             <div className="for_test">
                 測 <br />
