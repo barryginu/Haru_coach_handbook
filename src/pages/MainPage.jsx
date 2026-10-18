@@ -20,6 +20,7 @@ function MainPage({ language, setLanguage, languageList }) {
                 </button>))}
             */}
             <ItemList areaName={selectedArea} />
+
             <BackToTopButton />
             <div className="for_test">
                 測 <br />
