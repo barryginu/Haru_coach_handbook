@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import "./ItemList.css"
 
 const items = ["雪衣", "雪褲", "手套", "護具", "雪襪"]
 
