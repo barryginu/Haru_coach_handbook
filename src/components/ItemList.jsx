@@ -22,7 +22,7 @@ const items = ["雪衣", "雪褲", "手套", "護具", "雪襪"]
     此處可還原成function ItemList(props)
     同時下面return呼叫用{props.areaName}
 */}
-function ItemList({ areaName }) {
+function ItemList() {
     const [checkedItems, setCheckedItems] = useState([])
     function handleCheck(item) {
         if (checkedItems.includes(item)) {
@@ -44,6 +44,7 @@ function ItemList({ areaName }) {
                     {items.map((item) => (
                         <li key={item}>
                             <label>
+                                {/*label是為了讓字也可以點*/}
                                 <input
                                     type="checkbox"
                                     checked={checkedItems.includes(item)}

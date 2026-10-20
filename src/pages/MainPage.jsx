@@ -1,5 +1,6 @@
 import ItemList from "../components/ItemList"
 import BackToTopButton from "../components/BackToTopButton"
+import ResortInfo from "../components/ResortInfo"
 import { useState } from "react"
 const area_list = ["湯澤", "白馬"]
 
@@ -19,8 +20,11 @@ function MainPage({ language, setLanguage, languageList }) {
                     {lang}
                 </button>))}
             */}
-            <ItemList areaName={selectedArea} />
-
+            <ItemList />
+            <ResortInfo
+                area={selectedArea}
+                area_list={area_list}
+                changeArea={changeArea} />
             <BackToTopButton />
             <div className="for_test">
                 測 <br />

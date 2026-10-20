@@ -1,0 +1,18 @@
+.resort_mainChunk {
+    padding: 1.5vh;
+
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+    margin: 5%;
+
+    display: grid;
+    grid-gap: 10%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.resort_card {
+    border-style: dashed;
+    border-width: 1px;
+
+}
