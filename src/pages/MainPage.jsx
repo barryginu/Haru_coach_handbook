@@ -1,9 +1,11 @@
 import ItemList from "../components/ItemList"
 import BackToTopButton from "../components/BackToTopButton"
 import ResortInfo from "../components/ResortInfo"
-import { useState } from "react"
-const area_list = ["湯澤", "白馬"]
+import WeatherInfo from "../components/WeatherInfo"
 
+import { useState } from "react"
+
+const area_list = ["湯澤", "白馬"]
 
 
 function MainPage({ language, setLanguage, languageList }) {
@@ -25,6 +27,7 @@ function MainPage({ language, setLanguage, languageList }) {
                 area={selectedArea}
                 area_list={area_list}
                 changeArea={changeArea} />
+            <WeatherInfo />
             <BackToTopButton />
             <div className="for_test">
                 測 <br />
