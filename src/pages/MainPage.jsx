@@ -2,6 +2,7 @@ import ItemList from "../components/ItemList"
 import BackToTopButton from "../components/BackToTopButton"
 import ResortInfo from "../components/ResortInfo"
 import WeatherInfo from "../components/WeatherInfo"
+import CoachTips from "../components/CoachTips"
 
 import { useState } from "react"
 
@@ -30,6 +31,7 @@ function MainPage({ language, setLanguage, languageList }) {
             <WeatherInfo
                 area={selectedArea}
                 area_list={area_list} />
+            <CoachTips />
             <BackToTopButton />
             <div className="for_test">
                 測 <br />
