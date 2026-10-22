@@ -27,7 +27,9 @@ function MainPage({ language, setLanguage, languageList }) {
                 area={selectedArea}
                 area_list={area_list}
                 changeArea={changeArea} />
-            <WeatherInfo />
+            <WeatherInfo
+                area={selectedArea}
+                area_list={area_list} />
             <BackToTopButton />
             <div className="for_test">
                 測 <br />
