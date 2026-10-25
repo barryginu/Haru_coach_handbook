@@ -1,4 +1,5 @@
 import "./WeatherInfo.css"
+
 import { resorts } from '../data/resorts.js'
 
 
@@ -21,7 +22,7 @@ function WeatherInfo({ area, area_list }) {
 
     return (
         <>
-            <div className="weather_info_chunk">
+            <div id="weather_info_chunk" className="chapter_chunk">
                 <h2> 天氣資訊 </h2>
                 <select value="" name="chooseResort">
                     {/* 這版是依照區域分選項組，全部選項開放 */}

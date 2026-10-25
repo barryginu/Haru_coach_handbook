@@ -38,7 +38,7 @@ function ItemList() {
         <>
 
 
-            <div className="equipt_list">
+            <div id="equipt_list" className="chapter_chunk">
                 <h2>裝備清單</h2>
                 <ul>
                     {items.map((item) => (
