@@ -3,4 +3,9 @@
       border-color: black;
       border-style: solid;
       margin: 5%;
+
+
+      /* 元素在滾動到視窗時的外邊距空間 */
+      scroll-margin-top: 3vh;
+
   }
