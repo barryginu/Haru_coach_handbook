@@ -7,7 +7,11 @@ function parseCoordinates(coordinates) {
     return { latitude, longitude }
 }
 
-function createResort(name, area, coordinate) {
+function createResort(
+    name,       // 雪場名稱
+    area,       // 地區
+    coordinate  // 座標，純文字，從google map直接抓，所以會連在一起
+) {
     const { latitude, longitude } = parseCoordinates(coordinate)
 
     return {

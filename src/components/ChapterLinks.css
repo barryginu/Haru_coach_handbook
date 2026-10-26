@@ -1,14 +1,19 @@
 #chapter_links_chunk {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    background-color: aqua;
+    /* 內部留白與按鈕間距隨螢幕縮放 */
+    padding: 0;
+    gap: clamp(8px, 2vw, 20px);
+
 }
 
 .chapter_block {
     min-height: 56px;
     border: 1px solid black;
     background: white;
-
-
     /* 鼠標換成手指 */
     cursor: pointer;
+
 }

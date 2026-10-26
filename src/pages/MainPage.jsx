@@ -1,19 +1,21 @@
-import ItemList from "../components/ItemList"
+import Preparation from "../components/Preparation"
 import BackToTopButton from "../components/BackToTopButton"
 import ResortInfo from "../components/ResortInfo"
 import WeatherInfo from "../components/WeatherInfo"
 import CoachTips from "../components/CoachTips"
 import ChapterLinks from "../components/ChapterLinks"
 
-import "./MainPage.css"
+
 import "../components/ChunkGeneral.css"
 import { useState } from "react"
 
 const area_list = ["湯澤", "白馬"]
+const sport_type_list = ["單板", "雙板"]
 
 
 function MainPage({ language, setLanguage, languageList }) {
     const [selectedArea, changeArea] = useState(area_list[0])
+    const [selectedSport, changeSport] = useState(sport_type_list[0])
     return (
         <>
             <h1>教練小手冊</h1>
@@ -28,7 +30,11 @@ function MainPage({ language, setLanguage, languageList }) {
                 </button>))}
             */}
             <ChapterLinks />
-            <ItemList />
+            <Preparation
+                sport={selectedSport}
+                sport_type_list={sport_type_list}
+                changeSport={changeSport}
+            />
             <ResortInfo
                 area={selectedArea}
                 area_list={area_list}

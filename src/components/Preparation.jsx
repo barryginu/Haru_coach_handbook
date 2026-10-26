@@ -1,7 +1,10 @@
 import { useState } from 'react'
-import "./ItemList.css"
+import "./Preparation.css"
+import { itemList } from "../data/items.js"
 
-const items = ["雪衣", "雪褲", "手套", "護具", "雪襪"]
+// const items = ["雪衣", "雪褲", "手套", "護具", "雪襪"]
+
+
 
 {/*
     // useState範例
@@ -19,11 +22,18 @@ const items = ["雪衣", "雪褲", "手套", "護具", "雪襪"]
 
 
 {/*
-    此處可還原成function ItemList(props)
+    此處可還原成function Preparation(props)
     同時下面return呼叫用{props.areaName}
 */}
-function ItemList() {
+function Preparation({
+    sport,              // 當前的運動類型
+    sport_type_list,    // 存運動類型的list
+    changeSport         // 改變運動類型的func，可以讓網頁刷新
+}) {
     const [checkedItems, setCheckedItems] = useState([])
+
+    const current_sport_item = itemList.filter((item) => item.sport_type == "both" || item.sport_type == sport)
+
     function handleCheck(item) {
         if (checkedItems.includes(item)) {
             setCheckedItems(
@@ -36,13 +46,20 @@ function ItemList() {
 
     return (
         <>
-
+            此區段是切換父級，裝備變數的按鈕渲染
+            {sport_type_list.map((sportOption) => (
+                <button
+                    key={sportOption}
+                    onClick={() => changeSport(sportOption)}>
+                    {sportOption}
+                </button>))
+            }
 
             <div id="equipt_list" className="chapter_chunk">
-                <h2>裝備清單</h2>
+                <h2>裝備清單 當前裝備:{sport}</h2>
                 <ul>
-                    {items.map((item) => (
-                        <li key={item}>
+                    {current_sport_item.map((item) => (
+                        <li key={item.id}>
                             <label>
                                 {/*label是為了讓字也可以點*/}
                                 <input
@@ -50,18 +67,18 @@ function ItemList() {
                                     checked={checkedItems.includes(item)}
                                     onChange={() => handleCheck(item)}
                                 />
-                                {item}
+                                {item.name}
                             </label>
                         </li>
                     ))}
                 </ul>
 
                 <p>
-                    已完成 {checkedItems.length} / {items.length} 項
+                    已完成 {checkedItems.length} / {itemList.length} 項
                 </p>
             </div>
         </>
     )
 }
 
-export default ItemList
+export default Preparation
