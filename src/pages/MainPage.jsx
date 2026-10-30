@@ -10,10 +10,10 @@ import "../components/ChunkGeneral.css"
 import { useState } from "react"
 
 const area_list = ["湯澤", "白馬"]
-const sport_type_list = ["單板", "雙板"]
+const sport_type_list = ["snowboard", "ski"]
 
 
-function MainPage({ language, setLanguage, languageList }) {
+function MainPage({ currentLanguage, setLanguage, languageList }) {
     const [selectedArea, changeArea] = useState(area_list[0])
     const [selectedSport, changeSport] = useState(sport_type_list[0])
     return (
@@ -34,6 +34,7 @@ function MainPage({ language, setLanguage, languageList }) {
                 sport={selectedSport}
                 sport_type_list={sport_type_list}
                 changeSport={changeSport}
+                currentLanguage={currentLanguage}
             />
             <ResortInfo
                 area={selectedArea}

@@ -19,6 +19,10 @@ git diff                  ：比較檔案修改前後的細節差異。
 git add .                 ：將檔案的變更加入暫存區，. 代表將當前目錄及子目錄下所有「修改與新增」的檔案加入暫存區
 git commit -m "訊息說明"   ：建立記錄點，附帶訊息    
 */}
+{/*
+npm run dev               ：開本機的node.js 環境伺服器
+*/}
+
 const languageList = ["zh-TW", "en"]
 
 function App() {
