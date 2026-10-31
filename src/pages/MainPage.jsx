@@ -18,7 +18,11 @@ function MainPage({ currentLanguage, setLanguage, languageList }) {
     const [selectedSport, changeSport] = useState(sport_type_list[0])
     return (
         <>
-            <h1>教練小手冊</h1>
+            <header id="header_card">
+                <h4 id="web_name">
+                    Haru's handbook
+                </h4>
+            </header>
 
             {/* 此區段是切換父級語言變數的按鈕渲染 
             {languageList.map((lang) => (

@@ -1,54 +1,130 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+/* 
+============
+  全域區段
+============
+*/
+/* *是所有HTML元素 */
+*,
+*::before,
+*::after {
+  /* 預設是content-box，總寬度會另外加，border-box是總寬固定 */
+  box-sizing: border-box;
+}
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+/* 
+============
+  預設主題:淺色 區段
+============
+*/
+/* 
+建議配色參考-淺色
+//  背景
+    #F4F7FB
+
+    元件背景
+    #FFFFFF
+    
+    框線
+    #D5D1C8 
+
+    主要文字
+    #292D30
+
+    次要文字
+    #777A78
+
+    強調色
+    #8C9D9A
+
+建議配色參考-深色
+//  背景
+    #101821
+
+    元件背景
+    #1A2531
+
+    框線
+    #405569
+
+    主要文字
+    #E5EAF0
+
+    次要文字
+    #A6B2BF
+
+    強調色
+    #8FAFA9
+*/
+/* 根通用參數與設定，預設手機 */
+:root {
+  /* 顏色類 */
+  --text_color: #87898B;
+  --heading_color: #666869;
+  --bg_color: #F4F7FB;
+  --border_color: #D5D1C8;
+  --chunk_bg_color: #FFFFFF;
+
+  /* 數值類 */
+  --number_of_column: 2;
+  --radius_small: 9px;
+  --radius_middle: 18px;
+  --raduis_large: 36px;
+
+
+  /* 這是一般字型 */
+  --text_font: system-ui, 'Segoe UI', Roboto, sans-serif;
+  /* 這是標題字型 */
+  --heading_font: system-ui, 'Segoe UI', Roboto, sans-serif;
+  /* 等寬字字型 */
   --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/145% var(--sans);
+
+  font-size: 16px;
+  line-height: 145%;
+  font-family: var(--text_font);
   letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
+  color: var(--text_color);
+  background: var(--bg_color);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+
 }
 
-@media (prefers-color-scheme: dark) {
+
+/* 深色模式 */
+:root[data-theme="dark"] {
+  --text_color: #9ca3af;
+  --heading_color: #f3f4f6;
+  --bg_color: #16171d;
+  --border_color: #2e303a;
+
+}
+
+
+/* 
+============
+  RWD區段
+============
+*/
+/* 平板用參數與設定 */
+@media (min-width: 768px) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+    --number_of_column: 4;
   }
 }
+
+/* 桌面版用參數與設定 */
+@media (min-width: 1024px) {}
+
+
+/* 
+============
+  HTML基礎設定區段
+============
+*/
 
 body {
   margin: 0;
@@ -58,58 +134,48 @@ body {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
+  text-align: left;
+  border-inline: 1px solid var(--border_color);
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
 }
 
+
+/* 
+============
+  全域文字類區段
+============
+*/
 h1,
 h2 {
-  font-family: var(--heading);
+  font-family: var(--heading_font);
+  /* 字重 100~900 */
   font-weight: 500;
-  color: var(--text-h);
+  color: var(--text-title);
 }
 
 h1 {
-  font-size: 56px;
+  font-size: 36px;
   letter-spacing: -1.68px;
-  margin: 32px 0;
+  margin: 20px 0;
 
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+  @media (max-width: 1024px) {}
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
 
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+  @media (max-width: 1024px) {}
 }
 
 p {
   margin: 0;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
 code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+  font-family: var(--mono);
 }

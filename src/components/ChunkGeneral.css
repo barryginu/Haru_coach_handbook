@@ -1,9 +1,27 @@
+  #header_card {
+      background-color: var(--chunk_bg_color);
+      min-height: 3.125rem;
+      border-bottom: 3px solid rgb(128, 128, 128, 0.5);
+  }
+
+  #web_name {
+      margin: 3% 5%;
+      text-align: center;
+  }
+
   .chapter_chunk {
+      /* for test */
       border: 1px;
       border-color: black;
       border-style: solid;
-      margin: 5%;
 
+
+      margin: 5%;
+      padding: 3%;
+
+      /* confirm */
+      border-radius: var(--radius_middle);
+      background-color: var(--chunk_bg_color);
 
       /* 元素在滾動到視窗時的外邊距空間 */
       scroll-margin-top: 3vh;

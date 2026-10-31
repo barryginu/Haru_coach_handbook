@@ -3,7 +3,7 @@ const itemTexts = {
         "zh-TW": {
             name: "雪衣",
             description: "防水、防風、透氣，舒適合身為主，好看為輔",
-            suggestion: "若不介意的話可以用租借的較省錢"
+            suggestion: "若尚未確定未來會不會持續滑雪，且不介意款式的話，建議可以用租借的較省錢"
         },
         en: {
             name: "Snow jacket",

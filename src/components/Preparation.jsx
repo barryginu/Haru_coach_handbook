@@ -54,16 +54,16 @@ function Preparation({
 
     return (
         <>
-            此區段是切換父級，裝備類型變數的按鈕渲染
+            {/* 此區段是切換父級，裝備類型變數的按鈕渲染
             {sport_type_list.map((sportOption) => (
                 <button
                     key={sportOption}
                     onClick={() => changeSport(sportOption)}>
                     {show_sport_type(sportOption)}
                 </button>))
-            }
+            } */}
 
-            <div id="equipt_list" className="chapter_chunk">
+            <div id="preparation_list" className="chapter_chunk">
                 <h2>裝備清單 當前裝備:{show_sport_type(sport)}</h2>
                 <h6>{declare}</h6>
                 <ul>

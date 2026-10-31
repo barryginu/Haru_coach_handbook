@@ -30,7 +30,6 @@ function App() {
   {/* 語言定義在app，以免未來有需要改，可以用子級改變父級內容 */ }
   return (
     <BrowserRouter basename="/Haru_coach_handbook">
-      <p>目前語言:{language}</p>
       <Routes>
         <Route
           path='/'
@@ -44,7 +43,7 @@ function App() {
         />
         <Route path='/welcompage' element={<WelcomPage />} />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter >
   )
 }
 

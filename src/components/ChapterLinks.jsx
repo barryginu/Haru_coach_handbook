@@ -1,10 +1,10 @@
 import "./ChapterLinks.css"
 
 const chapters = [
-    { id: "equipt_list", label: "1 裝備" },
-    { id: "resort_info_Chunk", label: "2 雪場" },
-    { id: "weather_info_chunk", label: "3 天氣" },
-    { id: "coach_tips_chunk", label: "4 提醒" }
+    { id: "preparation_list", num: "1.", title: "行前準備", brief: "裝備、雪票，滑雪前的一切" },
+    { id: "resort_info_Chunk", num: "2.", title: "雪場資訊", brief: "各地區的雪場介紹" },
+    { id: "weather_info_chunk", num: "3.", title: "天氣資訊", brief: "各雪場的天氣預報" },
+    { id: "coach_tips_chunk", num: "4.", title: "教練提醒", brief: "來自教練的小提醒" }
 ]
 
 function scrollToChapter(targetId) {
@@ -29,7 +29,9 @@ function ChapterLinks() {
                     className="chapter_block"
                     onClick={() => scrollToChapter(chapter.id)}
                 >
-                    {chapter.label}
+                    <code>{chapter.num}</code>
+                    <strong>{chapter.title}</strong>
+                    <small>{chapter.brief}</small>
                 </button>
             ))}
         </div>

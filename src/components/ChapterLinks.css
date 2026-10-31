@@ -1,19 +1,36 @@
 #chapter_links_chunk {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(var(--number_of_column), minmax(0, 1fr));
 
-    background-color: aqua;
+    background-color: transparent;
     /* 內部留白與按鈕間距隨螢幕縮放 */
     padding: 0;
-    gap: clamp(8px, 2vw, 20px);
+    gap: clamp(5px, 1.75vw, 10px);
 
+    border: none;
 }
 
 .chapter_block {
     min-height: 56px;
     border: 1px solid black;
-    background: white;
+
+    display: grid;
+    gap: 5px;
+    text-align: left;
+
+    padding: 5%;
+
+    /* confirm */
+    border-radius: var(--radius_small);
+    background: var(--chunk_bg_color);
     /* 鼠標換成手指 */
     cursor: pointer;
+}
 
+.chapter_block code {
+    font-size: 20px;
+}
+
+.chapter_block strong {
+    font-size: 20px;
 }
