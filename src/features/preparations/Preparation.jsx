@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import "./Preparation.css"
-import { itemList } from "../data/items.js"
-import { itemTexts } from '../data/itemTexts.js'
+import { itemList } from "../../data/items.js"
+import { itemTexts } from '../../data/itemTexts.js'
 
 const declare = "*本清單內容僅供新手參考，滑雪是看天吃飯的運動，裝備內容隨著你的熟練、地區、天氣、溫度等都會有差異，可以隨你自己的理解與經驗調整喔"
 
-{/*
+/*
     // useState範例
     const [count, setCount] = useState(5);
     // 這是陣列的解構賦值等下如下
@@ -17,13 +17,13 @@ const declare = "*本清單內容僅供新手參考，滑雪是看天吃飯的�
     用useState()方法建立一個陣列，裡面有兩個物件，一個是 count，他本身是一個變數，可以是數字文字陣列等
     另一個物件是setCount，他本身是一個函式，用來更新count這個變數的內容，並讓網頁同步刷新
     我用useState()這方法時，同時括號中可同時設定這個變數的初始值
-*/}
+*/
 
 
-{/*
+/*
     此處可還原成function Preparation(props)
     同時下面return呼叫用{props.areaName}
-*/}
+*/
 function Preparation({
     sport,              // 當前的運動類型
     sport_type_list,    // 存運動類型的list
@@ -64,8 +64,28 @@ function Preparation({
             } */}
 
             <div id="preparation_list" className="chapter_chunk">
-                <h2>裝備清單 當前裝備:{show_sport_type(sport)}</h2>
-                <h6>{declare}</h6>
+                <div id='preparation_list_title_chunk'>
+                    <h2 id='preparation_list_title'>
+                        裝備清單
+                    </h2>
+                    <div id='sport_toggle_group'>
+                        當前裝備:{show_sport_type(sport)}
+                    </div>
+                </div>
+                <div id='preparation_list_intro'>
+                    <p>
+                        第一次去滑雪要準備什麼？<br />
+                        下面列出了滑雪所需的裝備，從必備到選備。<br />
+                        可以直接當作打包清單使用，還配有我的個人建議喔！
+                    </p>
+                </div>
+                <div id='preparation_list_declare'>
+                    <p>{declare}</p>
+                </div>
+                <div id='preparation_list_progression_bar'>
+
+                </div>
+
                 <ul>
                     {current_sport_item.map((item) => (
                         <li key={item.id}>

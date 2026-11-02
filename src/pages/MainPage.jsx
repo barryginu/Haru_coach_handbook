@@ -1,15 +1,15 @@
-import Navbar from "../components/Navbar"
+import Navbar from "../components/nav/Navbar"
 import HeroImage from "../components/HeroImage"
 import ChapterLinks from "../components/ChapterLinks"
-import Preparation from "../components/Preparation"
-import BackToTopButton from "../components/BackToTopButton"
-import ResortInfo from "../components/ResortInfo"
-import WeatherInfo from "../components/WeatherInfo"
-import CoachTips from "../components/CoachTips"
+import Preparation from "../features/preparations/Preparation"
+import BackToTopButton from "../components/nav/BackToTopButton"
+import ResortInfo from "../features/resortinfos/ResortInfo"
+import WeatherInfo from "../features/weatherinfo/WeatherInfo"
+import CoachTips from "../features/CoachTips"
 
 
 
-import "../components/ChunkGeneral.css"
+import "../ChunkGeneral.css"
 import { useState } from "react"
 
 const area_list = ["湯澤", "白馬"]
@@ -83,7 +83,7 @@ function MainPage({ currentLanguage, setLanguage, languageList }) {
                     文 <br />
                     字 <br />
                 </div>
-            </main>zz
+            </main>
         </>
     )
 }

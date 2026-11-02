@@ -1,0 +1,25 @@
+/* 準備欄位標題(文字本身) */
+#preparation_list_title {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+/* 簡單敘述 */
+#preparation_list_intro {
+  font-size: 15px;
+  line-height: 1.5;
+  padding-bottom: 5px;
+  /* 還要加上不換行，字型大小滾動 */
+}
+
+/* 小灰字宣言 */
+#preparation_list_declare {
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+/* 放名稱與切換裝備的按鈕 */
+#preparation_list_title_chunk {
+  display: flex;
+  gap: 50%;
+}

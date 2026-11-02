@@ -1,5 +1,5 @@
 import './BackToTopButton.css'
-import BTTIcon from './BTTIcon'
+import BTTIcon from '../icons/BTTIcon'
 
 
 function BackToTopButton() {

@@ -1,6 +1,5 @@
 import "./WeatherInfo.css"
-
-import { resorts } from '../data/resorts.js'
+import { resorts } from "../../data/resorts.js";
 
 
 

@@ -2,7 +2,7 @@ import './ResortInfo.css'
 
 // 這邊需要具名匯入，名詞須跟匯出端一樣
 // 這是用來存雪場資料的，移動到外部檔案讓其他元件也能取用
-import { resorts } from '../data/resorts.js'
+import { resorts } from '../../data/resorts.js'
 
 
 function ResortInfo({ area, area_list, changeArea }) {
