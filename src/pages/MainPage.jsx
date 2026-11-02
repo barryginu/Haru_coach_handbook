@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar"
+import HeroImage from "../components/HeroImage"
 import ChapterLinks from "../components/ChapterLinks"
 import Preparation from "../components/Preparation"
 import BackToTopButton from "../components/BackToTopButton"
@@ -31,6 +32,7 @@ function MainPage({ currentLanguage, setLanguage, languageList }) {
                 </button>))}
             */}
             <main className="page_content">
+                <HeroImage />
                 <ChapterLinks />
                 <Preparation
                     sport={selectedSport}
