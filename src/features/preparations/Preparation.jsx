@@ -5,6 +5,11 @@ import { itemTexts } from '../../data/itemTexts.js'
 
 const declare = "*本清單內容僅供新手參考，滑雪是看天吃飯的運動，裝備內容隨著你的熟練、地區、天氣、溫度等都會有差異，可以隨你自己的理解與經驗調整喔"
 
+const rentBuyLabel = {
+    rent: "建議租借",
+    buy: "建議購買",
+    either: "租買皆可",
+}
 /*
     // useState範例
     const [count, setCount] = useState(5);
@@ -30,9 +35,16 @@ function Preparation({
     changeSport,        // 改變運動類型的func，可以讓網頁刷新
     currentLanguage     // 當前的頁面語言
 }) {
-    const [checkedItems, setCheckedItems] = useState([])
+    // 存的內容從物件改為id，字串永遠可靠
+    const [checkedIds, setCheckedIds] = useState([])
+    // 拉出目前運動的裝備清單存
     const current_sport_item = itemList.filter((item) => item.sport_type == "both" || item.sport_type == sport)
+    // 從當前動清單中拉出有多少個已經被勾起來
+    const checkedCount = current_sport_item.filter((item) => checkedIds.includes(item.id)
+    ).length
 
+
+    // 用來給切換運動顯示中文的，之後可以抽出來
     function show_sport_type(current_sport) {
         if (current_sport == "snowboard") {
             return "單板"
@@ -44,16 +56,23 @@ function Preparation({
 
     function change_sport_plus_reset_checkList(sportOption) {
         changeSport(sportOption)
-        checkedItems.length = 0
+        setCheckedIds([])          // 傳入一個全新的空陣列
     }
 
-    function handleCheck(item) {
-        if (checkedItems.includes(item)) {
-            setCheckedItems(
-                checkedItems.filter((checkedItem) => checkedItem !== item)
+
+    function handleCheck(id) {
+        if (checkedIds.includes(id)) {
+            // 這邊是如果這ID有在"勾選了的清單內"的話。
+            // 用 setCheckedIds()這個涵式改變checkedIds這個list，並重新渲染
+            setCheckedIds(
+                // 這涵式需要傳入一個list(因為對應的是)list 所以用filter生一個list
+                checkedIds.filter((checkedId) => checkedId !== id)
             )
+
         } else {
-            setCheckedItems([...checkedItems, item])
+            // ...list是展開的意思，意思是展開這陣列(並讓你可以在前後做事)
+            // 這邊是展開已有的，並加入剛剛勾選的
+            setCheckedIds([...checkedIds, id])
         }
     }
 
@@ -97,13 +116,13 @@ function Preparation({
                 {/* 進度條 */}
                 <div id='preparation_list_progression_bar_chunk'>
                     <p>
-                        {checkedItems.length} / {current_sport_item.length} 準備完成
+                        {checkedCount} / {current_sport_item.length} 準備完成
                     </p>
                     <div id='preparation_list_progression_bar_track'>
                         <div id='preparation_list_progression_bar_value'
                             style=
                             {{
-                                "--bar_value": (checkedItems.length / current_sport_item.length) * 100 + "%"
+                                "--bar_value": (checkedCount / current_sport_item.length) * 100 + "%"
                             }}>
                         </div>
                     </div>
@@ -113,15 +132,25 @@ function Preparation({
                 <ul>
                     {current_sport_item.map((item) => (
                         <li key={item.id}>
-                            <label>
-                                {/*label是為了讓字也可以點*/}
-                                <input
-                                    type="checkbox"
-                                    checked={checkedItems.includes(item)}
-                                    onChange={() => handleCheck(item)}
-                                />
-                                {itemTexts[item.id][currentLanguage].name}
-                            </label>
+                            {/* (head) 放名稱與右標籤 */}
+                            <div className="item_head">
+                                <label>
+                                    {/*label是為了讓字也可以點*/}
+                                    <input
+                                        type="checkbox"
+                                        checked={checkedIds.includes(item.id)}
+                                        onChange={() => handleCheck(item.id)}
+                                    />
+                                    {itemTexts[item.id][currentLanguage].name}
+                                </label>
+                                <span className="item_tag" data-selected={item.rent_or_buy}>{rentBuyLabel[item.rent_or_buy]}</span>
+                            </div>
+                            {/* (body) 放量表與建議 */}
+                            <div className="item_body">
+                                <p> Haru的建議：<br />
+                                    {itemTexts[item.id][currentLanguage].suggestion}
+                                </p>
+                            </div>
                         </li>
                     ))}
                 </ul>

@@ -85,15 +85,17 @@
 
 #preparation_list_progression_bar_chunk {
   /* border: #000 1px solid; */
+  margin-bottom: 10px;
 }
 
-/* 進度條 */
+/* 進度條(底部) */
 #preparation_list_progression_bar_track {
   background-color: var(--bg_color_2);
   width: 45%;
   height: 10px;
 }
 
+/* 進度條(完成度與顏色) */
 #preparation_list_progression_bar_value {
   --bar_value: 0%;
   background-color: greenyellow;
@@ -101,3 +103,65 @@
   height: 100%;
   transition: width 0.3s ease;
 }
+
+#preparation_list ul {
+  /* 去掉原始清單元素的樣式 */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  /* 單向往下用flex排 */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 每一張卡片 */
+#preparation_list li {
+  border: 1px solid #000;
+  border-radius: var(--radius_small);
+  padding: 12px 5px;
+  background: var(--chunk_bg_color);
+}
+
+.item_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item_tag {
+  padding: 2px 10px;
+  border: 1px solid #000;
+  border-radius: 100vh;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.item_tag[data-selected="either"] {
+  background: #fbe9a5;
+}
+
+.item_tag[data-selected="buy"] {
+  background: lightgreen;
+}
+
+.item_tag[data-selected="rent"] {
+  background: lightcyan;
+}
+
+.item_body {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+
+/* 整體路線（先看地圖，不用現在做）
+清單每項變成「卡片」的外觀（只改 CSS）
+勾選狀態改存 id，並修掉 checkedItems.length = 0（只改 JS 邏輯）
+卡片拆成「頭」和「身體」，先讓身體顯示建議文字（改 JSX 結構）
+顯示「租買標籤」
+顯示「必備程度條」
+勾選後收合
+箭頭與手動展開
+分類 */
