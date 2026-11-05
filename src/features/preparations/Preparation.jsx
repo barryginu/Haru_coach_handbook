@@ -42,6 +42,11 @@ function Preparation({
         }
     }
 
+    function change_sport_plus_reset_checkList(sportOption) {
+        changeSport(sportOption)
+        checkedItems.length = 0
+    }
+
     function handleCheck(item) {
         if (checkedItems.includes(item)) {
             setCheckedItems(
@@ -54,24 +59,30 @@ function Preparation({
 
     return (
         <>
-            {/* 此區段是切換父級，裝備類型變數的按鈕渲染
-            {sport_type_list.map((sportOption) => (
-                <button
-                    key={sportOption}
-                    onClick={() => changeSport(sportOption)}>
-                    {show_sport_type(sportOption)}
-                </button>))
-            } */}
+
 
             <div id="preparation_list" className="chapter_chunk">
+
+                {/* 標題與切換運動 */}
                 <div id='preparation_list_title_chunk'>
                     <h2 id='preparation_list_title'>
-                        裝備清單
+                        事前準備
                     </h2>
-                    <div id='sport_toggle_group'>
-                        當前裝備:{show_sport_type(sport)}
+                    <div id='sport_toggle_group' data-selected={sport}>
+                        {sport_type_list.map((sportOption) => (
+                            <button
+                                key={sportOption}
+                                // 比對當前運動，是當前的會多一個active的class，不是的話class會是空字串(舊版使用)
+                                // className={sportOption === sport ? "active" : ""}
+                                // onClick={() => changeSport(sportOption)}>
+                                onClick={() => change_sport_plus_reset_checkList(sportOption)}>
+                                {show_sport_type(sportOption)}
+                            </button>))
+                        }
                     </div>
                 </div>
+
+                {/* 文字介紹類 */}
                 <div id='preparation_list_intro'>
                     <p>
                         第一次去滑雪要準備什麼？<br />
@@ -82,10 +93,23 @@ function Preparation({
                 <div id='preparation_list_declare'>
                     <p>{declare}</p>
                 </div>
-                <div id='preparation_list_progression_bar'>
 
+                {/* 進度條 */}
+                <div id='preparation_list_progression_bar_chunk'>
+                    <p>
+                        {checkedItems.length} / {current_sport_item.length} 準備完成
+                    </p>
+                    <div id='preparation_list_progression_bar_track'>
+                        <div id='preparation_list_progression_bar_value'
+                            style=
+                            {{
+                                "--bar_value": (checkedItems.length / current_sport_item.length) * 100 + "%"
+                            }}>
+                        </div>
+                    </div>
                 </div>
 
+                {/* 清單本身 */}
                 <ul>
                     {current_sport_item.map((item) => (
                         <li key={item.id}>
@@ -102,10 +126,8 @@ function Preparation({
                     ))}
                 </ul>
 
-                <p>
-                    已完成 {checkedItems.length} / {current_sport_item.length} 項
-                </p>
-            </div>
+
+            </div >
         </>
     )
 }

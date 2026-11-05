@@ -63,6 +63,8 @@
   --bg_color: #F4F7FB;
   --border_color: #D5D1C8;
   --chunk_bg_color: #FFFFFF;
+  /* 顏色類待測試 */
+  --bg_color_2: #C9CCCF;
 
   /* 數值類 */
   --number_of_column: 2;

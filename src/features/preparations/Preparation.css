@@ -1,25 +1,103 @@
+/* 放名稱與切換裝備的按鈕 */
+#preparation_list_title_chunk {
+  display: flex;
+  /* 複習justify是左右，即Y軸，直的那條基準是對左對右還是對哪 */
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
 /* 準備欄位標題(文字本身) */
 #preparation_list_title {
   font-size: 25px;
   font-weight: 700;
+  margin: 0;
 }
+
+/* 切換按鈕(外框) */
+#sport_toggle_group {
+  --gap_between_two_button: 0.3em;
+  /* 觸發自動clamp成'短邊'長度的一半 */
+  border-radius: 100vh;
+  display: flex;
+  /* ongoing */
+  background-color: var(--bg_color_2);
+  border: 1px solid #000;
+  gap: var(--gap_between_two_button);
+
+  position: relative;
+
+}
+
+/* 滑塊（白色膠囊） */
+#sport_toggle_group::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: calc((100% - var(--gap_between_two_button)) /2);
+  /* 容器寬 - 左右 padding，再除以 2 */
+  background: #fff;
+  border-radius: 100vh;
+  transition: transform 0.25s;
+
+}
+
+#sport_toggle_group[data-selected="ski"]::before {
+  transform: translateX(calc(100% + var(--gap_between_two_button)));
+  /* 往右移一個自己的寬度 */
+}
+
+/* 切換按鈕(本體) */
+#sport_toggle_group button {
+  cursor: pointer;
+  border-radius: 100vh;
+  position: relative;
+  /* ongoing */
+  background: none;
+  border: none;
+  padding: 3px 8px;
+}
+
+#sport_toggle_group button.active {}
+
+
 
 /* 簡單敘述 */
 #preparation_list_intro {
   font-size: 15px;
-  line-height: 1.5;
-  padding-bottom: 5px;
+  line-height: 1.2;
+  margin-bottom: 10px;
   /* 還要加上不換行，字型大小滾動 */
+
 }
 
 /* 小灰字宣言 */
 #preparation_list_declare {
   font-size: 10px;
   line-height: 1.2;
+  margin-bottom: 10px;
 }
 
-/* 放名稱與切換裝備的按鈕 */
-#preparation_list_title_chunk {
-  display: flex;
-  gap: 50%;
+/* 進度條文字 */
+#preparation_list_progression_bar_chunk p {
+  font-size: 13px;
+}
+
+#preparation_list_progression_bar_chunk {
+  /* border: #000 1px solid; */
+}
+
+/* 進度條 */
+#preparation_list_progression_bar_track {
+  background-color: var(--bg_color_2);
+  width: 45%;
+  height: 10px;
+}
+
+#preparation_list_progression_bar_value {
+  --bar_value: 0%;
+  background-color: greenyellow;
+  width: var(--bar_value);
+  height: 100%;
+  transition: width 0.3s ease;
 }

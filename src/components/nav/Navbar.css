@@ -5,7 +5,7 @@
 
      display: grid;
      grid-template-columns: 1fr auto 1fr;
-     /* 讓各grid-item上下置中，是上下不是左右 */
+     /* 讓各grid-item上下置中，是上下不是左右，即X軸，橫的那條基準是對上對下還是對哪 */
      align-items: center;
 
      position: fixed;
